@@ -1,0 +1,29 @@
+
+<div class="row mb-3">
+    <div class="col-12 border-bottom">
+        <h4 class="text-primary align-self-center"><%= @board.name %> Board</h4>
+        <p class="text-muted small-font"><%= @board.email%></p>
+    </div>
+</div>
+<div class="d-flex justify-content-center">
+    <div>
+    <input type="hidden" value="<%= @bomb %>" id="bomb">
+
+    <% for row in 1..@board.width do %>
+        <div>
+            <% for column in 1..@board.height do %>
+                <% tile = @board.tile(row,column) %>
+                <a href="<% if !tile.revealed %> <%= board_path(@board.id) %>?tile=<%= tile.id%><% end %> " type="button" class="mine-btn btn p-2 mb-1 <%= class_name(tile)%>">
+                    <% if tile.revealed %>
+                        <%= tile.value %>
+                    <% end %> 
+                </a>
+            <% end %>
+        </div>
+    <% end %>
+
+
+
+    </div>
+</div>
+

@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  x-axis: MyString
+  'y': 
+  value: MyString
+  revealed: false
+
+two:
+  x-axis: MyString
+  'y': 
+  value: MyString
+  revealed: false

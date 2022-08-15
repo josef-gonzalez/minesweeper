@@ -1,0 +1,60 @@
+
+<div class="row">
+    <% if flash.any? %>
+        <% flash.each do |type, msg| %>
+            <div class="alert alert-primary"><%= msg %></div>
+        <% end %>
+    <% end %>
+    <div class="col-md-6 col-sm-12">
+      <div class="col-sm-12 border-bottom">
+          <h4 class="text-primary align-self-center">Create new board</h4>
+      </div>
+      <div class="col-12 container">
+          <%= render 'form', board: @board %>
+      </div>
+    </div>
+    <div class="col-md-6 col-sm-12">
+      <div class="col-12">
+          <h4 class="text-primary align-self-center">Boards List</h4>
+      </div>
+      <div class="col-12 border-top">
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+              <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Width</th>
+                <th scope="col">Height</th>
+                <th scope="col">Mines</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @boards.each do |board|  %>
+                <tr>
+                <td><%= board.name%></td>
+                  <td><%= board.email %></td>
+                  
+                  <td><%= board.width %></td>
+                  <td>
+                    <%= board.height%>
+                  </td>
+                  <td><%= board.mines %></td>
+                
+                  <td>
+                    <%= link_to(board_path(board.id), class: " btn-link d-inline-flex" ) do %>
+                          <span class="text-primary">Open</span>
+                      <% end %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+   
+    
+ 
+</div>
